@@ -1,0 +1,9 @@
+/* 
+ *============================================================================
+ * COMPONENT : SECTION / COLLABORATEURS
+ *============================================================================
+*/
+
+.swiper.is-collaborateurs .swiper-wrapper.is-collaborateurs {
+  transition-timing-function: linear;
+}
