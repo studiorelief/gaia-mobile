@@ -1,8 +1,10 @@
 import './index.css';
 
+import { initCiblesSwiper } from './utils/component/ciblesSlider';
 import { initCollaborateursSwiper } from './utils/component/logoMarkee';
 import { initMetiersSwiper } from './utils/component/metiersSlider';
-import loadScript from './utils/global/loadScript';
+import { initReviewsSwiper } from './utils/component/reviewsSlider';
+import { loadAttributesScripts } from './utils/global/loadScript';
 import { initMarker } from './utils/global/marker';
 import {
   navbarHoverOpen,
@@ -10,18 +12,19 @@ import {
   navbarPositionManager,
   navbarScrollBehavior,
 } from './utils/global/navbar';
-import { hideDynListIfEmpty } from './utils/global/tricks';
+import { hideDynListIfEmpty, toggleSelectCustomActive } from './utils/global/tricks';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
   /* Script */
-  loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-accordion@1/accordion.js');
+  loadAttributesScripts();
 
   /* Recettage */
   initMarker();
 
-  /* global */
+  /* tricks */
   hideDynListIfEmpty();
+  toggleSelectCustomActive();
 
   /* Navbar */
   navbarHoverOpen();
@@ -33,4 +36,6 @@ window.Webflow.push(() => {
   /* Component */
   initCollaborateursSwiper();
   initMetiersSwiper();
+  initCiblesSwiper();
+  initReviewsSwiper();
 });

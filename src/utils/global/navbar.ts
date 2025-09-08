@@ -122,6 +122,19 @@ export function navbarHoverOpen(): void {
 
     const mouseenterHandler = (): void => {
       dropdownBody.classList.add('w--open');
+
+      // Handle dropdown shadow opacity
+      const dropdownShadow = dropdownBody.querySelector('.nav_menu_dropdown-shadow') as HTMLElement;
+      if (dropdownShadow) {
+        // Set initial transition properties
+        dropdownShadow.style.transition = 'opacity 0.3s ease-in-out';
+        dropdownShadow.style.opacity = '0';
+
+        // Set opacity to 1 after 0.2s delay
+        setTimeout(() => {
+          dropdownShadow.style.opacity = '1';
+        }, 300);
+      }
     };
 
     const mouseleaveHandler = (): void => {
@@ -130,6 +143,14 @@ export function navbarHoverOpen(): void {
         // Vérifier si la souris est sur le dropdown body
         if (!dropdownBody.matches(':hover')) {
           dropdownBody.classList.remove('w--open');
+
+          // Handle dropdown shadow opacity
+          const dropdownShadow = dropdownBody.querySelector(
+            '.nav_menu_dropdown-shadow'
+          ) as HTMLElement;
+          if (dropdownShadow) {
+            dropdownShadow.style.opacity = '0';
+          }
         }
       }, 0);
     };
@@ -140,6 +161,14 @@ export function navbarHoverOpen(): void {
       setTimeout(() => {
         if (!toggle.matches(':hover') && !dropdownBody.matches(':hover')) {
           dropdownBody.classList.remove('w--open');
+
+          // Handle dropdown shadow opacity
+          const dropdownShadow = dropdownBody.querySelector(
+            '.nav_menu_dropdown-shadow'
+          ) as HTMLElement;
+          if (dropdownShadow) {
+            dropdownShadow.style.opacity = '0';
+          }
         }
       }, 0);
     };

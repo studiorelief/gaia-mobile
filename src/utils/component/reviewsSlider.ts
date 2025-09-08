@@ -8,8 +8,8 @@ import 'swiper/css/bundle';
 
 import Swiper from 'swiper/bundle';
 
-export function initMetiersSwiper() {
-  const swipers = document.querySelectorAll('.swiper.is-metiers');
+export function initReviewsSwiper() {
+  const swipers = document.querySelectorAll('.swiper.is-reviews');
 
   if (swipers.length === 0) {
     return;
@@ -30,24 +30,28 @@ export function initMetiersSwiper() {
         eventsTarget: 'container',
       },
       pagination: {
-        el: '.swiper-pagination-wrapper',
-        bulletClass: 'swiper-bullet',
-        bulletActiveClass: 'swiper-bullet-active',
+        el: '.swiper-pagination-invert-wrapper',
+        bulletClass: 'swiper-bullet-invert',
+        bulletActiveClass: 'swiper-bullet-invert-active',
         clickable: true,
+      },
+      navigation: {
+        nextEl: '.reviews_right-button',
+        prevEl: '.reviews_left-button',
       },
       touchEventsTarget: 'wrapper',
       breakpoints: {
         320: {
-          slidesPerView: 1.75,
-          spaceBetween: 16 * 1.5,
+          slidesPerView: 1,
+          spaceBetween: 16 * 1,
         },
         768: {
-          slidesPerView: 3,
-          spaceBetween: 16 * 1.5,
+          slidesPerView: 1,
+          spaceBetween: 16 * 1,
         },
         992: {
-          slidesPerView: 5,
-          spaceBetween: 16 * 2,
+          slidesPerView: 1,
+          spaceBetween: 16 * 1,
         },
       },
     });

@@ -1,1 +1,14 @@
 @import './utils/component/logo-markee.css';
+@import './utils/component/sliders.css';
+@import './utils/component/button.css';
+
+/* Color range in Video Player */
+input[type='range'] {
+  accent-color: var(--_theme---background-fill--tertiary-default);
+}
+
+/* Swiper disabled navigation button */
+.swiper-button-disabled {
+  opacity: 0.1;
+  pointer-events: none;
+}

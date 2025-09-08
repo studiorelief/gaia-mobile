@@ -1,6 +1,6 @@
 /*
  *============================================================================
- * COMPONENT : SECTION / METIERS
+ * COMPONENT : SECTION / CIBLE
  *============================================================================
  */
 
@@ -8,8 +8,8 @@ import 'swiper/css/bundle';
 
 import Swiper from 'swiper/bundle';
 
-export function initMetiersSwiper() {
-  const swipers = document.querySelectorAll('.swiper.is-metiers');
+export function initCiblesSwiper() {
+  const swipers = document.querySelectorAll('.swiper.is-cibles');
 
   if (swipers.length === 0) {
     return;
@@ -19,8 +19,9 @@ export function initMetiersSwiper() {
     new Swiper(swiperEl as HTMLElement, {
       direction: 'horizontal',
       centeredSlides: false,
-      speed: 1000,
+      speed: 500,
       grabCursor: true,
+      autoHeight: true,
       allowTouchMove: true,
       keyboard: true,
       mousewheel: {
@@ -42,11 +43,11 @@ export function initMetiersSwiper() {
           spaceBetween: 16 * 1.5,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 1.75,
           spaceBetween: 16 * 1.5,
         },
         992: {
-          slidesPerView: 5,
+          slidesPerView: 3,
           spaceBetween: 16 * 2,
         },
       },

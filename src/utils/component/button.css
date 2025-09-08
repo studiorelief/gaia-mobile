@@ -1,0 +1,248 @@
+/* ============================================================================
+   BUTTON COMPONENT STYLES
+   ============================================================================
+   
+   Ce fichier contient tous les styles pour le composant button_main avec
+   ses différentes variantes et états d'interaction.
+   
+   Variantes disponibles :
+   - primary : Bouton principal
+   - secondary : Bouton secondaire
+   - tiny : Bouton de petite taille
+   - icon : Bouton avec icône
+   - dark : Bouton sombre
+   - light : Bouton clair
+   - navbar : Bouton pour la barre de navigation
+   - alternate : Variante alternative
+   - link : Bouton de type lien avec animation
+   
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   BASE STYLES - Animation de l'arrière-plan au survol
+   ---------------------------------------------------------------------------- */
+
+/* État initial de l'arrière-plan de survol pour tous les boutons */
+[data-wf--button-main--variant*='secondary'] .button_main_bg-hover,
+[data-wf--button-main--variant='primary'] .button_main_bg-hover,
+[data-wf--button-main--variant*='tiny'] .button_main_bg-hover,
+[data-wf--button-main--variant*='icon'] .button_main_bg-hover {
+  aspect-ratio: 1/1;
+  scale: 0;
+  opacity: 0;
+  transition:
+    scale 0.3s ease-out,
+    opacity 1s ease-out;
+}
+
+/* ----------------------------------------------------------------------------
+   PRIMARY BUTTONS - Boutons principaux
+   ---------------------------------------------------------------------------- */
+
+/* Animation de l'arrière-plan au survol */
+[data-wf--button-main--variant='primary']:hover .button_main_bg-hover {
+  scale: 1;
+  opacity: 1;
+  transition:
+    scale 0.3s ease-in,
+    opacity 0s ease-in;
+}
+
+/* Transition du texte */
+[data-wf--button-main--variant='primary'] .button_main_text {
+  transition: color 0.2s ease-out;
+}
+
+/* Couleur du texte au survol */
+[data-wf--button-main--variant='primary']:hover .button_main_text {
+  color: var(--_theme---text-color--primary-default);
+}
+
+/* Arrière-plan transparent au survol pour tous les boutons primaires */
+[data-wf--button-main--variant*='primary']:hover {
+  background-color: var(--_theme---background--transparent) !important;
+  transition-delay: 0.3s;
+}
+
+/* ----------------------------------------------------------------------------
+   SECONDARY BUTTONS - Boutons secondaires
+   ---------------------------------------------------------------------------- */
+
+/* Animation de l'arrière-plan au survol */
+[data-wf--button-main--variant*='secondary']:hover .button_main_bg-hover {
+  scale: 1;
+  opacity: 1;
+  transition:
+    scale 0.3s ease-in,
+    opacity 0s ease-in;
+}
+
+/* ----------------------------------------------------------------------------
+   ICON BUTTONS - Boutons avec icônes
+   ---------------------------------------------------------------------------- */
+
+/* Animation de l'arrière-plan au survol */
+[data-wf--button-main--variant*='icon']:hover .button_main_bg-hover {
+  scale: 1;
+  opacity: 1;
+  transition:
+    scale 0.3s ease-in,
+    opacity 0s ease-in;
+}
+
+/* Animation de l'icône au survol */
+[data-wf--button-main--variant*='icon']:hover .button_main_icon-hover {
+  margin-left: 0%;
+  transition: margin 0.3s ease-out;
+}
+
+/* État initial de l'icône */
+[data-wf--button-main--variant*='icon'] .button_main_icon-hover {
+  transition: margin 0.3s ease-in;
+}
+
+/* ----------------------------------------------------------------------------
+   DARK & NAVBAR BUTTONS - Boutons sombres et de navigation
+   ---------------------------------------------------------------------------- */
+
+/* Transition du texte pour les boutons sombres, navbar et tiny */
+[data-wf--button-main--variant*='dark'] .button_main_text,
+[data-wf--button-main--variant='primary-icon-navbar'] .button_main_text,
+[data-wf--button-main--variant*='tiny'] .button_main_text {
+  transition: color 0.2s ease-out;
+}
+
+/* Couleur du texte au survol */
+[data-wf--button-main--variant*='dark']:hover .button_main_text,
+[data-wf--button-main--variant='primary-icon-navbar']:hover .button_main_text,
+[data-wf--button-main--variant*='tiny']:hover .button_main_text {
+  color: var(--_theme---text-color--alternate);
+}
+
+/* Transition des icônes pour les boutons sombres et navbar */
+[data-wf--button-main--variant*='dark'] .button_main_icon,
+[data-wf--button-main--variant='primary-icon-navbar'] .button_main_icon {
+  transition:
+    background-color 0.3s ease-out,
+    color 0.3s ease-out;
+}
+
+/* Style des icônes au survol */
+[data-wf--button-main--variant*='dark']:hover .button_main_icon,
+[data-wf--button-main--variant='primary-icon-navbar']:hover .button_main_icon {
+  background-color: var(--_theme---background-fill--accent-pousse);
+  color: var(--_theme---text-color--primary-default);
+}
+
+/* ----------------------------------------------------------------------------
+   LIGHT BUTTONS - Boutons clairs
+   ---------------------------------------------------------------------------- */
+
+/* Transition des icônes */
+[data-wf--button-main--variant*='light'] .button_main_icon {
+  transition:
+    background-color 0.3s ease-out,
+    color 0.3s ease-out;
+}
+
+/* Style des icônes au survol */
+[data-wf--button-main--variant*='light']:hover .button_main_icon {
+  background-color: var(--_theme---background-fill--accent-pousse);
+}
+
+/* ----------------------------------------------------------------------------
+   ALTERNATE VARIANTS - Variantes alternatives
+   ---------------------------------------------------------------------------- */
+
+/* Bouton primaire avec icône alternative */
+[data-wf--button-main--variant='primary-icon-alternate']:hover .button_main_text {
+  color: var(--_theme---text-color--primary-default);
+}
+
+[data-wf--button-main--variant='primary-icon-alternate']:hover {
+  background-color: var(--_theme---background-fill--primary-default) !important;
+  transition-delay: 0.3s;
+}
+
+/* Bouton secondaire alternatif */
+[data-wf--button-main--variant='secondary-alternate'] .button_main_text {
+  transition: color 0.3s ease-out;
+}
+
+[data-wf--button-main--variant='secondary-alternate']:hover .button_main_text {
+  color: var(--_theme---text-color--primary-default);
+}
+
+/* ----------------------------------------------------------------------------
+   TINY BUTTONS - Boutons de petite taille
+   ---------------------------------------------------------------------------- */
+
+/* Animation de l'arrière-plan au survol */
+[data-wf--button-main--variant*='tiny']:hover .button_main_bg-hover {
+  scale: 1;
+  opacity: 1;
+  transition:
+    scale 0.3s ease-in,
+    opacity 0s ease-in;
+}
+
+/* ----------------------------------------------------------------------------
+   LINK BUTTONS - Boutons de type lien
+   ---------------------------------------------------------------------------- */
+
+/* Transition du bouton lien noir */
+[data-wf--button-link--variant='black'] {
+  transition: transform 0.3s ease-out;
+}
+
+/* Animation de déplacement au survol */
+[data-wf--button-link--variant='black']:hover {
+  transform: translateX(var(--_layout---spacing--small));
+}
+
+/* Transition du soulignement */
+[data-wf--button-link--variant='black'] .button_link_underline {
+  transition: width 0.3s ease-out;
+}
+
+/* Animation du soulignement au survol - disparition */
+[data-wf--button-link--variant='black']:hover .button_link_underline {
+  width: 0%;
+}
+
+/* ----------------------------------------------------------------------------
+   SLIDER BUTTONS - Boutons de navigation pour sliders
+   ---------------------------------------------------------------------------- */
+
+/* État initial de l'arrière-plan de survol des boutons flèche */
+.button_arrow_bg-hover {
+  scale: 0;
+  transition:
+    scale 0.3s ease-out,
+    opacity 1s ease-out;
+}
+
+/* Animation de l'arrière-plan au survol */
+.button_arrow_wrap:hover .button_arrow_bg-hover {
+  scale: 1;
+  opacity: 1;
+  transition:
+    scale 0.3s ease-in,
+    opacity 0s ease-in;
+}
+
+/* Arrière-plan transparent au survol du bouton */
+.button_arrow_wrap:hover {
+  background-color: var(--_theme---background-fill--transparent);
+  transition-delay: 0.3s;
+}
+
+/* Transition de l'icône flèche */
+.button_arrow_icon {
+  transition: color 0.3s ease-out;
+}
+
+/* Couleur de l'icône au survol */
+.button_arrow_wrap:hover .button_arrow_icon {
+  color: var(--_theme---text-color--primary-default);
+}
