@@ -10,7 +10,6 @@
 // ============================================================================
 // CONSTANTS
 // ============================================================================
-
 const DESKTOP_BREAKPOINT = 991;
 const SCROLL_THRESHOLD = 10;
 const SCROLL_HIDE_OFFSET = 100;
@@ -20,7 +19,6 @@ const RESIZE_DEBOUNCE = 100;
 // ============================================================================
 // STATE MANAGEMENT
 // ============================================================================
-
 interface NavbarState {
   dropdownListeners: Map<
     Element,
@@ -49,7 +47,6 @@ const navbarState: NavbarState = {
 // ============================================================================
 // UTILITY FUNCTIONS
 // ============================================================================
-
 /*
  ! Clean up all dropdown event listeners and close open dropdowns
 */
@@ -74,6 +71,12 @@ function cleanupDropdownListeners(): void {
   openDropdowns.forEach((dropdown) => {
     dropdown.classList.remove('w--open');
   });
+
+  // Ensure global layer is hidden
+  const globalLayer = document.querySelector('.nav_layer-open') as HTMLElement | null;
+  if (globalLayer) {
+    globalLayer.style.opacity = '0';
+  }
 }
 
 /*
@@ -96,7 +99,6 @@ function clearScrollTimeout(): void {
 // ============================================================================
 // DROPDOWN HOVER MANAGEMENT
 // ============================================================================
-
 /*
  ! Initialize hover behavior for dropdown menus on desktop
  ! Only works on screens larger than the desktop breakpoint
@@ -111,6 +113,9 @@ export function navbarHoverOpen(): void {
   if (!isDesktop()) {
     return;
   }
+
+  // Global layer (div isolé dans le HTML)
+  const globalLayer = document.querySelector('.nav_layer-open') as HTMLElement | null;
 
   // Add hover listeners for each dropdown toggle
   for (const toggle of dropdownToggles) {
@@ -135,6 +140,15 @@ export function navbarHoverOpen(): void {
           dropdownShadow.style.opacity = '1';
         }, 300);
       }
+
+      // Handle global layer opacity (same behavior)
+      if (globalLayer) {
+        globalLayer.style.transition = 'opacity 0.3s ease-in-out';
+        globalLayer.style.opacity = '0';
+        setTimeout(() => {
+          globalLayer.style.opacity = '1';
+        }, 0);
+      }
     };
 
     const mouseleaveHandler = (): void => {
@@ -150,6 +164,11 @@ export function navbarHoverOpen(): void {
           ) as HTMLElement;
           if (dropdownShadow) {
             dropdownShadow.style.opacity = '0';
+          }
+
+          // Handle global layer opacity
+          if (globalLayer) {
+            globalLayer.style.opacity = '0';
           }
         }
       }, 0);
@@ -168,6 +187,11 @@ export function navbarHoverOpen(): void {
           ) as HTMLElement;
           if (dropdownShadow) {
             dropdownShadow.style.opacity = '0';
+          }
+
+          // Handle global layer opacity
+          if (globalLayer) {
+            globalLayer.style.opacity = '0';
           }
         }
       }, 0);
@@ -190,7 +214,6 @@ export function navbarHoverOpen(): void {
 // ============================================================================
 // MOBILE MENU MANAGEMENT
 // ============================================================================
-
 /*
  ! Handle mobile menu behavior and prevent body scroll when open
 */
@@ -228,7 +251,6 @@ export function navbarMobileOpen(): void {
 // ============================================================================
 // RESPONSIVE POSITIONING
 // ============================================================================
-
 /*
  ! Manage navbar positioning based on screen size
  ! Ensures mega menu works properly on desktop
@@ -279,7 +301,6 @@ export function navbarPositionManager(): void {
 // ============================================================================
 // SCROLL BEHAVIOR
 // ============================================================================
-
 /*
  ! Handle navbar visibility based on scroll direction
  ! Hides navbar when scrolling down, shows when scrolling up

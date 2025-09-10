@@ -39,7 +39,7 @@ export function initCiblesSwiper() {
       touchEventsTarget: 'wrapper',
       breakpoints: {
         320: {
-          slidesPerView: 1.25,
+          slidesPerView: 1.1,
           spaceBetween: 16 * 1.5,
         },
         768: {
