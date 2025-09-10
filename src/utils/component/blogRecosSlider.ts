@@ -1,6 +1,6 @@
 /*
  *============================================================================
- * COMPONENT : SECTION / CIBLE
+ * COMPONENT : SECTION / METIERS
  *============================================================================
  */
 
@@ -8,8 +8,8 @@ import 'swiper/css/bundle';
 
 import Swiper from 'swiper/bundle';
 
-export function initCiblesSwiper() {
-  const swipers = document.querySelectorAll('.swiper.is-cibles');
+export function initBlogRecosSwiper() {
+  const swipers = document.querySelectorAll('.swiper.is-recos');
 
   if (swipers.length === 0) {
     return;
@@ -19,10 +19,10 @@ export function initCiblesSwiper() {
     new Swiper(swiperEl as HTMLElement, {
       direction: 'horizontal',
       centeredSlides: false,
-      speed: 500,
+      speed: 1000,
       grabCursor: true,
-      autoHeight: true,
       allowTouchMove: true,
+      //   slidesPerView: 3,
       keyboard: true,
       mousewheel: {
         forceToAxis: true,
@@ -39,16 +39,16 @@ export function initCiblesSwiper() {
       touchEventsTarget: 'wrapper',
       breakpoints: {
         320: {
-          slidesPerView: 1.25,
+          slidesPerView: 1.5,
           spaceBetween: 16 * 1.5,
         },
         768: {
-          slidesPerView: 1.75,
-          spaceBetween: 16 * 1.5,
+          slidesPerView: 2,
+          spaceBetween: 16 * 2.5,
         },
         992: {
           slidesPerView: 3,
-          spaceBetween: 16 * 2,
+          spaceBetween: 16 * 2.5,
         },
       },
     });

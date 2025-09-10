@@ -55,3 +55,72 @@ export function toggleSelectCustomActive() {
     }
   });
 }
+
+export function mapMonths() {
+  const monthMap: { [key: string]: string } = {
+    '01': 'Janvier',
+    '02': 'Février',
+    '03': 'Mars',
+    '04': 'Avril',
+    '05': 'Mai',
+    '06': 'Juin',
+    '07': 'Juillet',
+    '08': 'Août',
+    '09': 'Septembre',
+    '10': 'Octobre',
+    '11': 'Novembre',
+    '12': 'Décembre',
+  };
+
+  const elementsWithMonth = document.querySelectorAll('.date_month');
+
+  if (elementsWithMonth.length === 0) {
+    return;
+  }
+
+  elementsWithMonth.forEach((element) => {
+    if (element instanceof HTMLElement) {
+      const currentText = element.textContent?.trim();
+
+      if (currentText && monthMap[currentText]) {
+        element.textContent = monthMap[currentText];
+      }
+    }
+  });
+}
+
+export function copyUrl() {
+  const copyButton = document.querySelector('#copy-url') as HTMLElement;
+  const copiedText = document.querySelector('.share_copied-text') as HTMLElement;
+
+  if (!copyButton || !copiedText) return;
+
+  copyButton.addEventListener('click', () => {
+    // Copy current URL to clipboard
+    navigator.clipboard.writeText(window.location.href);
+
+    // Set initial state and show element
+    copiedText.style.transform = 'translateY(-1rem)';
+    copiedText.style.opacity = '0';
+    copiedText.style.display = 'flex';
+    copiedText.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+
+    // Force reflow to ensure initial state is applied
+    // copiedText.offsetHeight;
+
+    // Animate to visible state
+    copiedText.style.transform = 'translateY(0rem)';
+    copiedText.style.opacity = '1';
+
+    // Return to initial state after 2 seconds
+    setTimeout(() => {
+      copiedText.style.transform = 'translateY(-1rem)';
+      copiedText.style.opacity = '0';
+
+      // Hide element after animation completes
+      setTimeout(() => {
+        copiedText.style.display = 'none';
+      }, 300);
+    }, 2000);
+  });
+}

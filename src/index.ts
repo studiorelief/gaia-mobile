@@ -1,5 +1,7 @@
 import './index.css';
 
+import { initBlogSwiper } from './utils/component/blogBigSlider';
+import { initBlogRecosSwiper } from './utils/component/blogRecosSlider';
 import { initCiblesSwiper } from './utils/component/ciblesSlider';
 import { initCollaborateursSwiper } from './utils/component/logoMarkee';
 import { initMetiersSwiper } from './utils/component/metiersSlider';
@@ -12,19 +14,23 @@ import {
   navbarPositionManager,
   navbarScrollBehavior,
 } from './utils/global/navbar';
-import { hideDynListIfEmpty, toggleSelectCustomActive } from './utils/global/tricks';
+import {
+  copyUrl,
+  hideDynListIfEmpty,
+  mapMonths,
+  toggleSelectCustomActive,
+} from './utils/global/tricks';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
   /* Script */
   loadAttributesScripts();
 
-  /* Recettage */
-  initMarker();
-
   /* tricks */
   hideDynListIfEmpty();
   toggleSelectCustomActive();
+  mapMonths();
+  copyUrl();
 
   /* Navbar */
   navbarHoverOpen();
@@ -38,4 +44,10 @@ window.Webflow.push(() => {
   initMetiersSwiper();
   initCiblesSwiper();
   initReviewsSwiper();
+  initBlogSwiper();
+  initBlogRecosSwiper();
+
+  // alert('stagging');
+  /* Recettage */
+  initMarker();
 });

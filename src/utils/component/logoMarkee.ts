@@ -19,7 +19,8 @@ export function initCollaborateursSwiper() {
     new Swiper(swiperEl as HTMLElement, {
       direction: 'horizontal',
       loop: true,
-      centeredSlides: false,
+      centeredSlides: true,
+      // width: 100,
       speed: 5000,
       autoplay: {
         delay: 0,
@@ -39,7 +40,7 @@ export function initCollaborateursSwiper() {
           spaceBetween: 16 * 2.5,
         },
         992: {
-          slidesPerView: 7,
+          slidesPerView: 'auto',
           spaceBetween: 16 * 5,
         },
       },
