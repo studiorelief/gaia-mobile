@@ -1,0 +1,9 @@
+.layout-tabs_tabs-loading {
+  transition: width 0.3s ease-out;
+  width: 0%;
+}
+
+.layout-tabs_tabs-link-w.w--current .layout-tabs_tabs-loading {
+  width: 100%;
+  transition: width 6s ease-out;
+}

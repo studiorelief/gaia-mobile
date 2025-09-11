@@ -6,6 +6,7 @@ import { initCiblesSwiper } from './utils/component/ciblesSlider';
 import { initCollaborateursSwiper } from './utils/component/logoMarkee';
 import { initMetiersSwiper } from './utils/component/metiersSlider';
 import { initReviewsSwiper } from './utils/component/reviewsSlider';
+import { initAutoTabs } from './utils/component/tabLoop';
 import { loadAttributesScripts } from './utils/global/loadScript';
 import { initMarker } from './utils/global/marker';
 import {
@@ -46,8 +47,8 @@ window.Webflow.push(() => {
   initReviewsSwiper();
   initBlogSwiper();
   initBlogRecosSwiper();
+  initAutoTabs();
 
-  // alert('stagging');
   /* Recettage */
   initMarker();
 });
