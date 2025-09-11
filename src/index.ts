@@ -47,7 +47,9 @@ window.Webflow.push(() => {
   initReviewsSwiper();
   initBlogSwiper();
   initBlogRecosSwiper();
-  initAutoTabs();
+  if (window.innerWidth > 991) {
+    initAutoTabs();
+  }
 
   /* Recettage */
   initMarker();

@@ -1,9 +1,11 @@
-.layout-tabs_tabs-loading {
-  transition: width 0.3s ease-out;
-  width: 0%;
-}
+@media screen and (min-width: 991px) {
+  .layout-tabs_tabs-loading {
+    transition: width 0.3s ease-out;
+    width: 0%;
+  }
 
-.layout-tabs_tabs-link-w.w--current .layout-tabs_tabs-loading {
-  width: 100%;
-  transition: width 6s ease-out;
+  .layout-tabs_tabs-link-w.w--current .layout-tabs_tabs-loading {
+    width: 100%;
+    transition: width 6s ease-out;
+  }
 }
