@@ -10,6 +10,7 @@ import { initAutoTabs } from './utils/component/tabLoop';
 import { loadAttributesScripts } from './utils/global/loadScript';
 import { initMarker } from './utils/global/marker';
 import {
+  navbarDropdownState,
   navbarHoverOpen,
   navbarMobileOpen,
   navbarPositionManager,
@@ -39,6 +40,7 @@ window.Webflow.push(() => {
   window.addEventListener('resize', navbarHoverOpen);
   navbarPositionManager();
   navbarScrollBehavior();
+  navbarDropdownState();
 
   /* Component */
   initCollaborateursSwiper();

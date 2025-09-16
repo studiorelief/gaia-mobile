@@ -362,3 +362,30 @@ export function navbarScrollBehavior(): void {
 
   window.addEventListener('scroll', navbarState.scrollListener, { passive: true });
 }
+
+// ============================================================================
+// DROPDOWN STATE MANAGEMENT
+// ============================================================================
+/*
+ ! Apply font color to dropdown toggle if any link has w--current class
+*/
+export function navbarDropdownState(): void {
+  // Sélectionner tous les dropdown bodies
+  const dropdownBodies = document.querySelectorAll('.nav_menu_dropdown-body');
+
+  dropdownBodies.forEach((dropdownBody) => {
+    // Chercher les liens avec la classe w--current dans ce dropdown
+    const currentLinks = dropdownBody.querySelectorAll('.nav_menu_dropdown-link.w--current');
+
+    // Trouver le toggle sibling (élément précédent)
+    const dropdownToggle = dropdownBody.previousElementSibling as HTMLElement;
+
+    if (dropdownToggle?.classList.contains('nav_menu_dropdown-toggle')) {
+      if (currentLinks.length > 0) {
+        dropdownToggle.style.color = 'var(--_theme---border-color--primary-hover)';
+      } else {
+        dropdownToggle.style.color = '';
+      }
+    }
+  });
+}
